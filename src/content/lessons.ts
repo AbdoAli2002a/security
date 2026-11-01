@@ -3,7 +3,7 @@ export type Block =
   | { type: "paragraph"; text: string }
   | { type: "subheading"; text: string; en?: string }
   | { type: "list"; items: string[] }
-  | { type: "steps"; items: string[] }
+  | { type: "steps"; title?: string; items: string[] }
   | { type: "note"; title?: string; text: string; variant?: "info" | "tip" | "warn" }
   | { type: "table"; head: string[]; rows: string[][] }
   | { type: "quote"; text: string };
