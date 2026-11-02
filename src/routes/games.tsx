@@ -149,6 +149,7 @@ function MatchGame() {
                     ? "border-primary bg-primary/15 shadow-[var(--shadow-glow)]"
                     : "border-border bg-card hover:border-primary/50"
               }`}
+              dir="ltr"
             >
               {t.tool}
             </button>
@@ -358,7 +359,7 @@ function MemoryGame() {
               {isOpen ? (
                 <>
                   <span className="text-xs font-extrabold leading-snug">{c.label}</span>
-                  <span className="mt-1 font-latin text-[10px] opacity-80">{c.sub}</span>
+                  <span className="mt-1 font-latin text-[10px] opacity-80" dir="ltr">{c.sub}</span>
                 </>
               ) : (
                 <ShieldAlert className="size-6 text-primary/40" />
