@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ActivitiesRouteImport } from './routes/activities'
+import { Route as GamesRouteImport } from './routes/games'
+import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as LessonsIndexRouteImport } from './routes/lessons.index'
 import { Route as LessonsSlugRouteImport } from './routes/lessons.$slug'
 
@@ -22,6 +24,16 @@ const IndexRoute = IndexRouteImport.update({
 const ActivitiesRoute = ActivitiesRouteImport.update({
   id: '/activities',
   path: '/activities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LessonsIndexRoute = LessonsIndexRouteImport.update({
@@ -38,12 +50,16 @@ const LessonsSlugRoute = LessonsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
+  '/games': typeof GamesRoute
+  '/quiz': typeof QuizRoute
   '/lessons/$slug': typeof LessonsSlugRoute
   '/lessons/': typeof LessonsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
+  '/games': typeof GamesRoute
+  '/quiz': typeof QuizRoute
   '/lessons/$slug': typeof LessonsSlugRoute
   '/lessons': typeof LessonsIndexRoute
 }
@@ -51,20 +67,32 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
+  '/games': typeof GamesRoute
+  '/quiz': typeof QuizRoute
   '/lessons/$slug': typeof LessonsSlugRoute
   '/lessons/': typeof LessonsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/activities' | '/lessons/$slug' | '/lessons/'
+  fullPaths:
+    '/' | '/activities' | '/games' | '/quiz' | '/lessons/$slug' | '/lessons/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/activities' | '/lessons/$slug' | '/lessons'
-  id: '__root__' | '/' | '/activities' | '/lessons/$slug' | '/lessons/'
+  to: '/' | '/activities' | '/games' | '/quiz' | '/lessons/$slug' | '/lessons'
+  id:
+    | '__root__'
+    | '/'
+    | '/activities'
+    | '/games'
+    | '/quiz'
+    | '/lessons/$slug'
+    | '/lessons/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ActivitiesRoute: typeof ActivitiesRoute
+  GamesRoute: typeof GamesRoute
+  QuizRoute: typeof QuizRoute
   LessonsSlugRoute: typeof LessonsSlugRoute
   LessonsIndexRoute: typeof LessonsIndexRoute
 }
@@ -83,6 +111,20 @@ declare module '@tanstack/react-router' {
       path: '/activities'
       fullPath: '/activities'
       preLoaderRoute: typeof ActivitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lessons/': {
@@ -105,6 +147,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ActivitiesRoute: ActivitiesRoute,
+  GamesRoute: GamesRoute,
+  QuizRoute: QuizRoute,
   LessonsSlugRoute: LessonsSlugRoute,
   LessonsIndexRoute: LessonsIndexRoute,
 }

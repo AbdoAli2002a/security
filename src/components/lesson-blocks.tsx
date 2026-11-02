@@ -61,7 +61,7 @@ export function LessonBlocks({ blocks }: { blocks: Block[] }) {
               </div>
             );
           case "note": {
-            const s = noteStyles[b.variant ?? "info"];
+            const s = noteStyles[b.variant ?? "info"] ?? noteStyles["info"]!;
             const Icon = s.Icon;
             return (
               <div key={i} className={`flex gap-4 rounded-2xl border p-5 ${s.cls}`}>

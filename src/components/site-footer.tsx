@@ -8,8 +8,8 @@ export function SiteFooter() {
           <span className="flex size-11 items-center justify-center rounded-xl bg-primary/15 text-primary">
             <HeartHandshake className="size-6" />
           </span>
-          <p className="text-sm font-bold">إعداد وتقديم / احمد الجارحي جلال</p>
-          <p className="font-latin text-xs tracking-widest text-muted-foreground">AG Ahmed Elgarhy</p>
+          <p className="text-sm font-bold">إعداد وتقديم / عبدالرحمن علي</p>
+          <p className="font-latin text-xs tracking-widest text-muted-foreground">Abdulrahman Ali</p>
           <p className="max-w-xl text-xs leading-relaxed text-muted-foreground">
             الأمن يعتمد على ثلاثة عناصر أساسية: العنصر البشري (وعيك)، والحلول التقنية (البرامج)، والسياسات الأمنية المناسبة.
           </p>
