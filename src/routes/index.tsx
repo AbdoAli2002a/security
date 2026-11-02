@@ -88,7 +88,7 @@ function Home() {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary">
               <ShieldCheck className="size-4" />
-              إعداد وتقديم / احمد الجارحي جلال
+              إعداد وتقديم / عبدالرحمن علي
             </span>
             <h1 className="mt-5 text-3xl font-black leading-snug md:text-5xl md:leading-tight">
               برامج وأدوات الحماية المتقدمة
