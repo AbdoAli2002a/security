@@ -159,7 +159,7 @@ function Home() {
                   <t.Icon className="size-5.5" />
                 </span>
                 <div>
-                  <h3 className="font-latin font-bold">{t.name}</h3>
+                  <h3 className="font-latin font-bold" dir="ltr">{t.name}</h3>
                   <p className="font-latin text-[11px] tracking-widest text-muted-foreground">{t.en.toUpperCase()}</p>
                 </div>
               </div>
