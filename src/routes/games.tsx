@@ -25,7 +25,9 @@ function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+    const tmp = a[i]!;
+    a[i] = a[j]!;
+    a[j] = tmp;
   }
   return a;
 }
@@ -183,7 +185,7 @@ function FirewallGame() {
   const [choice, setChoice] = useState<"allow" | "block" | null>(null);
   const [finished, setFinished] = useState(false);
 
-  const s = firewallScenarios[index];
+  const s = firewallScenarios[index]!;
   const total = firewallScenarios.length;
 
   const decide = (d: "allow" | "block") => {
@@ -303,15 +305,16 @@ function MemoryGame() {
 
   useEffect(() => {
     if (flipped.length !== 2) return;
-    const [a, b] = flipped;
+    const a = flipped[0]!;
+    const b = flipped[1]!;
     setMoves((m) => m + 1);
     if (a.split("-")[0] === b.split("-")[0]) {
       setMatched((prev) => new Set([...prev, a, b]));
       setFlipped([]);
-    } else {
-      const t = setTimeout(() => setFlipped([]), 800);
-      return () => clearTimeout(t);
+      return undefined;
     }
+    const t = setTimeout(() => setFlipped([]), 800);
+    return () => clearTimeout(t);
   }, [flipped]);
 
   const flip = (key: string) => {
