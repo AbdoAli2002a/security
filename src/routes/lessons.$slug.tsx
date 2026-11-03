@@ -60,6 +60,8 @@ function LessonPage() {
         <LessonBlocks blocks={lesson.blocks} />
       </article>
 
+      <LessonQa lessonSlug={lesson.slug} />
+
       <nav className="mt-14 grid gap-3 sm:grid-cols-2">
         {prev ? (
           <Link to="/lessons/$slug" params={{ slug: prev.slug }} className="panel group p-5 transition-colors hover:border-primary/40">
