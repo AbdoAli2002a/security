@@ -3,6 +3,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { lessons } from "@/content/lessons";
 import { LessonBlocks } from "@/components/lesson-blocks";
 import { LessonIcon } from "@/components/lesson-icon";
+import { LessonQa } from "@/components/lesson-qa";
 
 export const Route = createFileRoute("/lessons/$slug")({
   loader: ({ params }) => {
