@@ -3,6 +3,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { lessons } from "@/content/lessons";
 import { LessonBlocks } from "@/components/lesson-blocks";
 import { LessonIcon } from "@/components/lesson-icon";
+import { LessonQa } from "@/components/lesson-qa";
 
 export const Route = createFileRoute("/lessons/$slug")({
   loader: ({ params }) => {
@@ -58,6 +59,8 @@ function LessonPage() {
       <article className="space-y-2">
         <LessonBlocks blocks={lesson.blocks} />
       </article>
+
+      <LessonQa lessonSlug={lesson.slug} />
 
       <nav className="mt-14 grid gap-3 sm:grid-cols-2">
         {prev ? (
