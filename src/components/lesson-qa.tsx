@@ -6,7 +6,7 @@ import { askLesson } from "@/lib/lesson-qa.functions";
 interface QaEntry {
   question: string;
   answer: string;
-  error?: string;
+  error?: string | undefined;
 }
 
 export function LessonQa({ lessonSlug }: { lessonSlug: string }) {
