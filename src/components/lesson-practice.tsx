@@ -214,6 +214,7 @@ export function LessonPractice() {
 
   const q = questions[current];
   const answered = answers[current];
+  if (!q) return null;
 
   return (
     <section className="panel mt-12 overflow-hidden">

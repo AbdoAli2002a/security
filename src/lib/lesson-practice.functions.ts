@@ -109,7 +109,7 @@ function extractQuestions(raw: string): PracticeQuestion[] | null {
     const questions: PracticeQuestion[] = [];
     for (const q of list) {
       if (typeof q !== "object" || q === null) continue;
-      const item = q as Record<string, unknown>;
+      const item = q as { question?: unknown; options?: unknown; answerIndex?: unknown; explanation?: unknown };
       const question = typeof item.question === "string" ? item.question.trim() : "";
       const options = Array.isArray(item.options) ? item.options.filter((o): o is string => typeof o === "string" && o.trim().length > 0).slice(0, 4) : [];
       const answerIndex = typeof item.answerIndex === "number" ? item.answerIndex : -1;
