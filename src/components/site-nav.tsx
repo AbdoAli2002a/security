@@ -8,6 +8,7 @@ const links = [
   { to: "/activities", label: "الأنشطة" },
   { to: "/quiz", label: "الاختبار" },
   { to: "/games", label: "الألعاب" },
+  { to: "/practice", label: "تدريب مخصص" },
 ] as const;
 
 export function SiteNav() {
